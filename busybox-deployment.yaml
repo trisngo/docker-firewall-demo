@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: busybox-deployment-node1
+  namespace: network-policy-demo
+  labels:
+    app: busyboxnode1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: busyboxnode1
+  template:
+    metadata:
+      labels:
+        app: busyboxnode1
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        ports:
+        - containerPort: 80
+        command: ["/bin/sh", "-ec", "while :; do echo '.'; sleep 5 ; done"]
+      nodeSelector:
+        nodezone: node1
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: busybox-deployment-node2
+  namespace: network-policy-demo
+  labels:
+    app: busyboxnode2
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: busyboxnode2
+  template:
+    metadata:
+      labels:
+        app: busyboxnode2
+    spec:
+      containers:
+      - name: busybox
+        image: busybox
+        ports:
+        - containerPort: 80
+        command: ["/bin/sh", "-ec", "while :; do echo '.'; sleep 5 ; done"]
+      nodeSelector:
+        nodezone: node2
