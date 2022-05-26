@@ -12,7 +12,7 @@ apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
   name: allow-busybox-egress
-  namespace: advanced-policy-demo
+  namespace: network-policy-demo
 spec:
   selector: app == 'busyboxnode1'
   types:
@@ -24,7 +24,7 @@ apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
   name: allow-busybox-egress
-  namespace: advanced-policy-demo
+  namespace: network-policy-demo
 spec:
   selector: app == 'busyboxnode2'
   types:
@@ -36,7 +36,7 @@ apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
   name: allow-busyboxnode1-ingress
-  namespace: advanced-policy-demo
+  namespace: network-policy-demo
 spec:
   selector: app == 'busyboxnode1'
   types:
@@ -50,7 +50,7 @@ apiVersion: projectcalico.org/v3
 kind: NetworkPolicy
 metadata:
   name: allow-busyboxnode2-ingress
-  namespace: advanced-policy-demo
+  namespace: network-policy-demo
 spec:
   selector: app == 'busyboxnode2'
   types:
