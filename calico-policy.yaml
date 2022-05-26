@@ -3,7 +3,7 @@ kind: GlobalNetworkPolicy
 metadata:
   name: default-deny
 spec:
-  selector: projectcalico.org/namespace in  {'kube-system', 'calico-system', 'calico-apiserver', 'cattle-fleet-system', 'cattle-impersonation-system', 'cattle-system'}
+  selector: projectcalico.org/namespace not in {'kube-system', 'calico-system', 'calico-apiserver', 'cattle-fleet-system', 'cattle-impersonation-system', 'cattle-system'}
   types:
   - Ingress
   - Egress
